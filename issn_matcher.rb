@@ -13,6 +13,12 @@ class ISSNMatcher
     "#{catkey},#{@catkeys[catkey]},#{@sfx_data[@catkeys[catkey]]}"
   end
 
+  def report
+    @catkeys.keys.each do |catkey|
+      puts merged catkey
+    end
+  end
+
   private
 
   def read_sfx_file(sfx_file)
@@ -26,6 +32,7 @@ class ISSNMatcher
   end
 
   def verified(issn)
-    /\d{4}-\d{4}/ =~ issn ? issn : "NO ISSN"
+    /\d{4}-\d{3}\d|X/ =~ issn ? issn : "NO ISSN"
   end
 end
+

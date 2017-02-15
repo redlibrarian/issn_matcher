@@ -27,6 +27,11 @@ describe ISSNMatcher do
       it "should handle cases with no issn" do
         expect(@issn_matcher.catkeys["728521"]).to eq "NO ISSN"
       end
+
+      
+      it "should handle issns that end in X" do
+        expect(@issn_matcher.catkeys["398511"]).to eq "0006-341X"
+      end
     end
   end
 
