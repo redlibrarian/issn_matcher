@@ -9,7 +9,7 @@ describe ISSNMatcher do
   describe "read SFX data file" do
     context "given an SFX data file" do
       it "should populate a hash of issn->object ID" do
-        expect(@issn_matcher.sfx_data).to include("0000-0019" => "954921332001")
+        expect(@issn_matcher.sfx_data).to include("0168-0072" => "954921332001")
       end
     end
   end
@@ -32,7 +32,9 @@ describe ISSNMatcher do
 
   describe "output a merged list" do
     it "should print out a merged line" do
-      expect(@issn_matcher.merged[").to eq
+      expect(@issn_matcher.merged("493306")).to eq "493306,0168-0072,954921332001"
+      expect(@issn_matcher.merged("728521")).to eq "728521,NO ISSN,"
+      expect(@issn_matcher.merged("483883")).to eq "483883,NO ISSN,"
     end
   end
 end

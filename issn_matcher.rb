@@ -9,6 +9,10 @@ class ISSNMatcher
     read_catkey_file(options[:catkey_file]) if options[:catkey_file]
   end
 
+  def merged(catkey)
+    "#{catkey},#{@catkeys[catkey]},#{@sfx_data[@catkeys[catkey]]}"
+  end
+
   private
 
   def read_sfx_file(sfx_file)
